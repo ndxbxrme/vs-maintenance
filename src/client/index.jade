@@ -1,0 +1,14 @@
+html
+  head
+    base(href='/')
+    meta(charset='utf-8')
+    title vs-maintenance
+    meta(name='description', content='')
+    meta(name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1")
+  body(ng-app='vs-maintenance')
+    header
+    .body
+      .container
+        login
+        .view(ui-view='', ng-show='auth.getUser()')
+    footer

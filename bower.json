@@ -1,0 +1,29 @@
+{
+  "name": "vs-maintenance",
+  "description": "",
+  "main": "server/app.js",
+  "authors": [
+    ""
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "angular": "^1.6.4",
+    "angular-touch": "^1.6.4",
+    "angular-ui-router": "^1.0.3",
+    "ndx-auth": "^0.0.23",
+    "ndx-rest": "^0.1.6",
+    "ndx-socket": "^0.0.6",
+    "ndx-form-extras": "^0.0.8"
+  }
+}
