@@ -1,0 +1,5 @@
+.modal.task-modal
+  h1 task
+  p(ng-click='setDate()') {{task.date | date:'mediumDate'}}
+  p {{task.date | date:'shortTime'}}
+  a.close-reveal-modal(ng-click='cancel()') &times;

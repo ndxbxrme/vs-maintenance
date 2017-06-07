@@ -104,6 +104,7 @@ module.exports = (grunt) ->
         src: [
           'routes/**/*.html'
           'directives/**/*.html'
+          'modals/**/*.html'
         ]
         dest: 'build/client/templates.js'
     copy:

@@ -7,8 +7,11 @@ html
     meta(name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1")
   body(ng-app='vs-maintenance')
     header
-    .body
-      .container
-        login
-        .view(ui-view='', ng-show='auth.getUser()')
+    .holder
+      .body
+        .container
+          login
+          .view(ui-view='', ng-show='auth.getUser()')
     footer
+    date-swiper(config='{prefix:"swiper", modifier:1.5, show:false}')
+    script(src='https://use.fontawesome.com/7cf3591d99.js')

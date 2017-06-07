@@ -24,6 +24,17 @@
     "ndx-auth": "^0.0.23",
     "ndx-rest": "^0.1.6",
     "ndx-socket": "^0.0.6",
-    "ndx-form-extras": "^0.0.8"
+    "ndx-form-extras": "^0.0.8",
+    "angular-gravatar": "^0.4.2",
+    "ndx-modal": "^0.0.5",
+    "moment": "^2.18.1",
+    "hammerjs": "^2.0.8",
+    "underscore": "^1.8.3",
+    "ndx-alert": "^0.0.2",
+    "ndx-array-extras": "^0.0.4",
+    "ndx-codemirror": "^0.0.8",
+    "ndx-markdown": "^0.0.4",
+    "ndx-scroll-top": "^0.0.11",
+    "ndx-pagination": "^0.1.1"
   }
 }
