@@ -17,6 +17,7 @@
             select(ng-model='newUser.role')
               option(value='agency', selected) Agency
               option(value='maintenance') Maintenance
+              option(value='admin') Admin
           input(type='submit', value='Invite')
         .invite-error {{inviteError}}
         .invite-url(ng-show='inviteUrl')
