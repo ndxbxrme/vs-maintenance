@@ -13,8 +13,18 @@
     .dates
       .date-swiper-holder
         position relative
+        display block
         .controls
           display none
+        .month-holder
+          height 2rem
+          position relative
+        .month-name
+          position absolute
+          top 0
+          left 0
+          width 100%
+          display block
     h4
       margin .5rem 0
     .today, .income, .counts, .users, .filters
