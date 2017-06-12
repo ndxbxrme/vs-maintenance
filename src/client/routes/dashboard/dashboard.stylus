@@ -41,9 +41,13 @@
           box-shadow none
           padding 0.5rem
           color white
+        .select2-chosen
+          padding 0 0 0 0.5rem
     .users
       .user
         img
           margin-right .5rem
           vertical-align text-bottom
+.select2-highlighted
+  background vs-grey!important
         
