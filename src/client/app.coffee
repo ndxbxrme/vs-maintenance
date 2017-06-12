@@ -4,7 +4,9 @@ angular.module 'vs-maintenance', [
   'ndx'
   'ui.router'
   'ui.gravatar'
+  'ui.select2'
   'date-swiper'
+  'ngFileUpload'
 ]
 .config ($locationProvider, $urlRouterProvider, gravatarServiceProvider) ->
   gravatarServiceProvider.defaults =
@@ -13,7 +15,7 @@ angular.module 'vs-maintenance', [
     rating: 'pg'
   $urlRouterProvider.otherwise '/'
   $locationProvider.html5Mode true
-.run ($rootScope, ndxModal) ->
+.run ($rootScope, ndxModal, $state, $timeout, TaskPopup) ->
   root = Object.getPrototypeOf $rootScope
   root.generateId = (len) ->
     letters = "abcdefghijklmnopqrstuvwxyz0123456789"
@@ -35,6 +37,40 @@ angular.module 'vs-maintenance', [
         data: ->
           args.data
     modalInstance.result
+  root.state = (state) ->
+    $state.is state
+  root.selectById = (list, id) ->
+    output = null
+    if list and list.length
+      for item in list
+        if item._id is id
+          output = item
+          break
+    output
+  $timeout ->
+    root.users = $rootScope.list 'users', null, (users) ->
+      root.maintenance = []
+      root.staff = []
+      for user in users.items
+        if user.roles
+          if user.roles.maintenance
+            root.maintenance.push user
+            if not $rootScope.selectedUser
+              $rootScope.selectedUser = user
+          if user.roles.agency
+            root.staff.push user
+  $('body').on 'mousedown', (e) ->
+    elm = e.target
+    isPopup = false
+    while elm and elm.tagName isnt 'BODY'
+      if elm.className is 'popup'
+        isPopup = true
+        break
+      elm = elm.parentNode
+    if not isPopup
+      if not TaskPopup.getHidden()
+        TaskPopup.hide()
+        TaskPopup.cancelBubble = true
 try
   angular.module 'ndx'
 catch e

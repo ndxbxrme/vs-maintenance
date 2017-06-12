@@ -1,1 +1,49 @@
 @import '../../variables'
+.dashboard-route
+  display flex
+  .toolbar
+    background vs-grey
+    color white
+    display flex
+    flex-direction column
+    min-width 200px
+    flex-wrap wrap
+    font-size .8rem
+    .dates
+      .date-swiper-holder
+        position relative
+        .controls
+          display none
+    h4
+      margin .5rem 0
+    .today, .income, .counts, .users
+      padding 1rem
+    .today
+      background darken(vs-grey, 15)
+    .income-item, .counts-item
+      display flex
+      justify-content space-between
+      margin .5rem 0
+      .loss
+        text-shadow 1px 1px 0 red
+    .user-select
+      display flex
+      align-items center
+      background darken(vs-grey, 15)
+      .select2-container
+        border none
+        .select2-arrow
+          display none
+        .select2-choice
+          background none
+          background-image none
+          border none
+          box-shadow none
+          padding 0.5rem
+          color white
+    .users
+      .user
+        img
+          margin-right .5rem
+          vertical-align text-bottom
+        

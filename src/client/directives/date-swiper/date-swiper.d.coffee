@@ -171,6 +171,7 @@
             scope.date = me._setActiveDate(date)
             scope.months = me._generateMonths(scope.date)
             _setMonths scope.snap
+            $rootScope.$emit signature + ':date-tap', scope.date
             return
 
           # Calculate the classes for the calendar items.
@@ -220,16 +221,20 @@
             y = if y < 0 then 0 else y
             if d == 'x'
               carousel.css transform: 'translate3d(' + x + '%, 0, 0)'
+            ###
             else
               swiper.css transform: 'translate3d(0, ' + y + '%, 0)'
+            ###
             return
           ).on 'panend', ->
             swiper.removeClass('dragging').css transform: ''
             if d == 'x'
               scope.snap = _calculateSnapPoint(x)
               _setMonths scope.snap
+            ###
             if d == 'y' and y > 35
               scope.toggle()
+            ###
             scope.$apply()
             return
           # LISTEN FOR THINGS

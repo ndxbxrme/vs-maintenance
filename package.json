@@ -1,6 +1,6 @@
 {
   "name": "vs-maintenance",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "server/app.js",
   "scripts": {
@@ -38,6 +38,7 @@
   "dependencies": {
     "ndx-auth": "^0.1.7",
     "ndx-connect": "0.0.6",
+    "ndx-file-upload": "^0.1.9",
     "ndx-passport": "^0.4.4",
     "ndx-permissions": "^0.3.2",
     "ndx-profiler": "^0.1.0",

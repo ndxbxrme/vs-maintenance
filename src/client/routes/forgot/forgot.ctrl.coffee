@@ -8,7 +8,7 @@ angular.module 'vs-maintenance'
       $http.post '/get-forgot-code',
         email: $scope.email
       .then (response) ->
-        console.log response.data
+        true
   $scope.submitPass = ->
     if $scope.repeatPassword is $scope.password
       $http.post "/forgot-update/#{$scope.token}",

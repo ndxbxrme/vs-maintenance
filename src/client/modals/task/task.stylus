@@ -1,0 +1,33 @@
+@import '../../variables'
+.task-modal
+  h1
+    margin 0
+    padding 1rem
+    font-size 1.5rem
+  form
+    box-sizing border-box
+    padding 0 1rem 0 0
+    .form-item
+      display flex
+      margin-bottom 1rem
+      align-items baseline
+      flex-wrap wrap
+      label
+        width 80px
+        padding-left 1rem
+      .select2-container
+        flex 1
+      .CodeMirror
+        flex 1
+        height 100px
+        border 1px solid #ccc
+      .add-job
+        margin-left 1rem
+      .half
+        flex 1
+        display flex
+        align-items baseline
+    .controls
+      text-align right
+      .submit
+        vs-button()

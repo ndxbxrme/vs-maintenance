@@ -16,6 +16,7 @@ angular.module 'vs-maintenance'
         .then (response) ->
           scope.auth.getPromise()
           .then ->
+            scope.users.refreshFn()
             scope.auth.goToNext()
         , (err) ->
           scope.message = err.data
@@ -29,6 +30,7 @@ angular.module 'vs-maintenance'
         .then (response) ->
           scope.auth.getPromise()
           .then ->
+            scope.users.refreshFn()
             scope.auth.goToNext()
         , (err) ->
           scope.message = err.data

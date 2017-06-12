@@ -1,0 +1,42 @@
+@import '../../variables'
+.task-popup-dir
+  box-sizing border-box
+  position absolute
+  width 480px
+  max-width calc(100vw - 20px)
+  transition all $transition $bounce
+  z-index 30
+  padding 1rem 0
+  .pointer
+    z-index -1
+    position absolute
+    top .75rem
+    left 20px
+    width 2rem
+    height 2rem
+    content ''
+    background #666
+    transform rotate(45deg) translate3D(0,0,0)
+    transition left $transition $bounce
+  .popup
+    background white
+    border 1px solid black
+    padding 0.5rem
+    display flex
+    justify-content space-between
+    .details
+      .details-item
+        display flex
+        margin-bottom 0.5rem
+        label
+          font-weight bold
+          margin-right 1rem
+          min-width 60px
+    .controls
+      text-align right
+      .checkbox-item
+        white-space nowrap
+        margin-bottom .5rem
+      .edit
+        vs-button()
+        margin-bottom .5rem
