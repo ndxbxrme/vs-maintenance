@@ -2,6 +2,14 @@
 .calendar-dir
   margin-top 1rem
   overflow hidden
+  .controls
+    padding-left 3.5rem
+    font-size .8rem
+    a
+      color vs-orange
+      text-decoration none
+      padding .5rem
+      display inline-block
   .carousel
     display flex
     &.animate

@@ -9,6 +9,7 @@
     min-width 200px
     flex-wrap wrap
     font-size .8rem
+    padding-bottom .5rem
     .dates
       .date-swiper-holder
         position relative
@@ -16,9 +17,10 @@
           display none
     h4
       margin .5rem 0
-    .today, .income, .counts, .users
-      padding 1rem
+    .today, .income, .counts, .users, .filters
+      padding 0rem 1rem .5rem 1rem
     .today
+      padding-top 1rem
       background darken(vs-grey, 15)
     .income-item, .counts-item
       display flex
@@ -43,11 +45,13 @@
           color white
         .select2-chosen
           padding 0 0 0 0.5rem
-    .users
-      .user
-        img
-          margin-right .5rem
-          vertical-align text-bottom
+    .filters
+      input
+        vertical-align middle
+      #filterConfirmed
+        box-shadow 1px 1px 0px vs-green
+      #filterQuote
+        box-shadow 1px 1px 0 vs-orange
 .select2-highlighted
   background vs-grey!important
         

@@ -6,6 +6,17 @@
         option(ng-repeat='user in maintenance', value='{{user._id}}') {{user.displayName || user.local.email}}
     .dates
       date-swiper(config='{prefix:"toolbar", modifier:1.5, show:true}')
+    .filters
+      h4 Status
+      .filter
+        input#filterConfirmed(type='checkbox', ng-change='setFilters()', ng-model='filters.confirmed')
+        label(for='filterConfirmed') Confirmed
+      .filter
+        input#filterQuote(type='checkbox', ng-change='setFilters()', ng-model='filters.quote')
+        label(for='filterQuote') Quote
+      .filter
+        input#filterCompleted(type='checkbox', ng-change='setFilters()', ng-model='filters.completed')
+        label(for='filterCompleted') Completed
     .income {{income = calculateWeeklyIncome(); ''}}
       h4 Weekly Target
       .income-item

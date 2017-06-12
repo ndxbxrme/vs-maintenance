@@ -175,7 +175,36 @@ angular.module 'vs-maintenance'
         key: key
         value: value
       }
+      
+    scope.prev = ->
+      scope.snap =
+        key: 0
+        value: 0
+      snapTo()
+    scope.next =->
+      scope.snap =
+        key: 2
+        value: -200
+      snapTo()
+    scope.goToToday = ->
+      startDate = new Date()
+      selectedDate = startDate
+      while startDate.getDay() isnt 1
+        startDate = new Date(startDate.valueOf() - 24 * 60 * 60 * 1000)
+      generateData startDate
 
+    snapTo = ->
+      carousel.removeClass('dragging').addClass('animate').css transform: 'translate3d(' + scope.snap.value + '%, 0, 0)'
+      if scope.snap.key isnt 1
+        $timeout ->
+          if scope.snap.key is 0
+            startDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - 7)
+          if scope.snap.key is 2
+            startDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + 7)
+          generateData startDate
+          scope.snap = _snaps[1]
+          carousel.removeClass('animate').css transform: 'translate3d(' + scope.snap.value + '%, 0, 0)'
+        , 300
 
     # HAMMER TIME
     hammerSwiper.get('pan').set
@@ -201,17 +230,7 @@ angular.module 'vs-maintenance'
         scope.snap = _calculateSnapPoint(x)
         #_setMonths scope.snap
         #scope.snap = _snaps[1]
-        carousel.removeClass('dragging').addClass('animate').css transform: 'translate3d(' + scope.snap.value + '%, 0, 0)'
-        if scope.snap.key isnt 1
-          $timeout ->
-            if scope.snap.key is 0
-              startDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - 7)
-            if scope.snap.key is 2
-              startDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + 7)
-            generateData startDate
-            scope.snap = _snaps[1]
-            carousel.removeClass('animate').css transform: 'translate3d(' + scope.snap.value + '%, 0, 0)'
-          , 300
+        snapTo()
       scope.$apply()
       return
     scope.mod = 1.5
