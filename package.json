@@ -1,6 +1,6 @@
 {
   "name": "vs-maintenance",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "",
   "main": "server/app.js",
   "scripts": {
@@ -43,7 +43,7 @@
     "ndx-mailgun-api": "0.0.9",
     "ndx-passport": "^0.4.4",
     "ndx-permissions": "^0.3.2",
-    "ndx-profiler": "^0.1.1",
+    "ndx-profiler": "^0.1.2",
     "ndx-rest": "^0.5.0",
     "ndx-server": "^0.12.7",
     "ndx-socket": "0.0.8",
