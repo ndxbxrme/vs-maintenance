@@ -7,16 +7,26 @@
   form
     box-sizing border-box
     padding 0 1rem 0 0
+    line-height 2rem
+    display flex
+    flex-direction column
+    flex-wrap wrap
     .form-item
       display flex
       margin-bottom 1rem
       align-items baseline
       flex-wrap wrap
-      label
+      position relative
+      min-height 4.4rem
+      max-width 100%
+      word-wrap break-word
+      label.title
         width 80px
         padding-left 1rem
-      .select2-container
+      .SumoSelect
         flex 1
+        .optWrapper
+          top 100%
       .CodeMirror
         flex 1
         height 100px
@@ -31,3 +41,12 @@
       text-align right
       .submit
         vs-button()
+  @media screen and (max-width:819px)
+    .form-item
+      .half
+        min-width 100%
+        margin-bottom 1.6rem
+  @media screen and (max-height:800px)
+    overflow-Y scroll
+    max-height 100vh
+    top 0

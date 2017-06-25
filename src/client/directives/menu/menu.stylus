@@ -22,8 +22,12 @@ menu
     ul
       flex-direction column
     a
+      font-size 1.6rem
       color vs-orange
-      width 100px
       box-sizing border-box
-      padding .5rem 1rem
+      padding 1rem
       display block
+      border-bottom 1px solid vs-orange
+      text-decoration none
+      &:hover
+        background mix(#fff, vs-orange, 80)

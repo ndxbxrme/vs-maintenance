@@ -3,7 +3,8 @@
   $angular.module('date-swiper', []).directive('tap', [ ->
     (scope, element, attr) ->
       hammerTap = new Hammer(element[0], {})
-      hammerTap.on 'tap', ->
+      hammerTap.on 'tap', (ev) ->
+        scope.$event = ev
         scope.$apply ->
           scope.$eval attr.tap
           return

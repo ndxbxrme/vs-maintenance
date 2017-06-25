@@ -1,6 +1,6 @@
 {
   "name": "vs-maintenance",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "",
   "main": "server/app.js",
   "scripts": {
@@ -38,14 +38,14 @@
   "dependencies": {
     "ndx-auth": "^0.1.7",
     "ndx-connect": "0.0.6",
-    "ndx-cors": "0.0.9",
+    "ndx-cors": "0.0.10",
     "ndx-file-upload": "^0.1.9",
     "ndx-mailgun-api": "0.0.9",
     "ndx-passport": "^0.4.5",
     "ndx-permissions": "^0.3.2",
     "ndx-profiler": "^0.1.2",
     "ndx-rest": "^0.5.0",
-    "ndx-server": "^0.12.8",
+    "ndx-server": "^0.12.12",
     "ndx-socket": "0.0.8",
     "ndx-static-routes": "0.0.13",
     "ndx-superadmin": "^0.1.4",

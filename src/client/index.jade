@@ -12,13 +12,13 @@ html
     link(rel="mask-icon", href="public/favicon/safari-pinned-tab.svg", color="#5bbad5")
     link(rel='stylesheet', href='../../bower_components/humane-js/themes/libnotify.css')
     meta(name="theme-color", content="#ffffff")
-  body(ng-app='vs-maintenance', tap='mobileMenuOut=false')
+  body(ng-app='vs-maintenance', tap='bodyTap($event)', ng-class='{"dashboard-state":state("dashboard"),"logged-in":auth.getUser()}')
     header
     menu.mobile-menu
+    login
     .holder(ng-class='{"mobile-menu-out":mobileMenuOut}')
       .body
         .container
-          login
           .view(ui-view='', ng-if='auth.getUser() || state("invited")')
     footer
     date-swiper(config='{prefix:"swiper", modifier:1.5, show:false}')

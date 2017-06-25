@@ -17,8 +17,8 @@ angular.module 'vs-maintenance'
                 task.date = taskDate
                 task.duration = new Date task.duration
                 dayDate = new Date day.day.getFullYear(), day.day.getMonth(), day.day.getDate(), 9
-                task.top = (taskDate.valueOf() - dayDate.valueOf()) / 3600000 * 3
-                task.height = task.duration.valueOf() / 3600000 * 3
+                task.top = (taskDate.valueOf() - dayDate.valueOf()) / 3600000 * 6
+                task.height = task.duration.valueOf() / 3600000 * 6
                 day.tasks.push task
     scope.calculateDailyIncome = (day) ->
       output =
@@ -60,8 +60,8 @@ angular.module 'vs-maintenance'
       [{
         title: 'dgoijd godijg dsoigjds gjsdiogj dsojg sdoigj sdoigjsdoi gjodsigj sdiojgosdij gosdijg osdigj oijg osdijg osdigj ij g'
         date: taskDate
-        top: (taskDate.valueOf() - date.valueOf()) / 3600000 * 3
-        height: 3600000 / 3600000 * (1.5 * Math.floor(Math.random() * 6) + 3)
+        top: (taskDate.valueOf() - date.valueOf()) / 3600000 * 6
+        height: 3600000 / 3600000 * (3 * Math.floor(Math.random() * 6) + 3)
         status: statuses[Math.floor(Math.random() * statuses.length)]
         duration: new Date(3600000)
       }]
@@ -208,13 +208,13 @@ angular.module 'vs-maintenance'
 
     # HAMMER TIME
     hammerSwiper.get('pan').set
-      direction: Hammer.DIRECTION_ALL
+      direction: Hammer.DIRECTION_HORIZONTAL
       threshold: 0
     hammerSwiper.on('panstart', ->
       carousel.addClass('dragging').removeClass 'animate'
       swiper.addClass 'dragging'
       return
-    ).on('panleft panright panup pandown', (e) ->
+    ).on('panleft panright', (e) ->
       d = if Math.abs(parseInt(e.deltaX)) > Math.abs(parseInt(e.deltaY)) then 'x' else 'y'
       x = scope.snap.value + parseInt(e.deltaX) / elem[0].clientWidth * 100 * scope.mod
       y = parseInt(e.deltaY) / elem[0].clientHeight * 100 * scope.mod

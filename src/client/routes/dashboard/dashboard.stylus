@@ -6,14 +6,20 @@
     color white
     display flex
     flex-direction column
-    min-width 200px
+    width 260px
+    min-width 260px
+    max-width 260px
     flex-wrap wrap
-    font-size .8rem
     padding-bottom .5rem
     .dates
       .date-swiper-holder
         position relative
         display block
+        .day-names
+          color inherit
+          margin-top 1.6rem
+        .month
+          background #394a58
         .controls
           display none
         .month-holder
@@ -26,13 +32,19 @@
           width 100%
           display block
           pointer-events none
+        .is-selected
+          .date
+            background vs-orange
     h4
       margin .5rem 0
     .today, .income, .counts, .users, .filters
       padding 0rem 1rem .5rem 1rem
+      .mobile
+        display none
     .today
       padding-top 1rem
       background darken(vs-grey, 15)
+      box-sizing border-box
     .income-item, .counts-item
       display flex
       justify-content space-between
@@ -65,4 +77,28 @@
         box-shadow 1px 1px 0 vs-orange
 .select2-highlighted
   background vs-grey!important
-        
+@media screen and (max-width:819px)
+  .dashboard-state
+    .holder
+      &:before
+        display none
+  .dashboard-route
+    flex-direction column
+    .toolbar
+      min-width 100%
+      max-width 100%
+      flex-direction row
+      flex-wrap wrap
+      padding-bottom 0
+      .dates, .users
+        display none
+      .today, .user-select
+        width 50%
+      .filters, .income, .counts
+        flex 1
+        .desktop
+          display none
+        .mobile
+          display block
+      .filter
+        white-space nowrap

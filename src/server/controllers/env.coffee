@@ -2,6 +2,8 @@
 
 module.exports = (ndx) ->
   ndx.app.get '/env.js', (req, res, next) ->
+    console.log "#{req.protocol}://#{req.headers.host}"
+    console.log req.headers.host
     res.header 'Content-Type', 'application/javascript'
     res.end "
 (function() {

@@ -19,15 +19,26 @@
         label(for='filterCompleted') Completed
     .income {{income = calculateWeeklyIncome(); ''}}
       h4 Weekly Target
-      .income-item
-        label Income
-        span {{income.amount | currency:'£'}}
-      .income-item
-        label Target
-        span {{income.target | currency:'£'}}
-      .income-item
-        label +/-
-        span(ng-class='{loss:income.profitloss<0}') {{income.profitloss | currency:'£'}}
+      .desktop
+        .income-item
+          label Income
+          span {{income.amount | currency:'£'}}
+        .income-item
+          label Target
+          span {{income.target | currency:'£'}}
+        .income-item
+          label +/-
+          span(ng-class='{loss:income.profitloss<0}') {{income.profitloss | currency:'£'}}
+      .mobile
+        .income-item
+          label Income
+          span &nbsp;{{income.amount | currency:'£':0}}
+        .income-item
+          label Target
+          span &nbsp;{{income.target | currency:'£':0}}
+        .income-item
+          label +/-
+          span(ng-class='{loss:income.profitloss<0}') &nbsp;{{income.profitloss | currency:'£':0}}
     .counts
       h4 Weekly Activities
       .counts-item

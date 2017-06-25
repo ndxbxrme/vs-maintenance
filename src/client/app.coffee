@@ -7,6 +7,7 @@ angular.module 'vs-maintenance', [
   'ui.select2'
   'date-swiper'
   'ngFileUpload'
+  'ng-sumoselect'
 ]
 .config ($locationProvider, $urlRouterProvider, gravatarServiceProvider) ->
   gravatarServiceProvider.defaults =
@@ -59,7 +60,8 @@ angular.module 'vs-maintenance', [
               $rootScope.selectedUser = user
           if user.roles.agency
             root.staff.push user
-  $('body').on 'mousedown', (e) ->
+  $rootScope.bodyTap = (e) ->
+    $rootScope.mobileMenuOut = false
     elm = e.target
     isPopup = false
     while elm and elm.tagName isnt 'BODY'
