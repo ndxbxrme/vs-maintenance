@@ -7,4 +7,4 @@ grunt build
 #groupadd -r vsmaintenance && useradd -m -r -g vsmaintenance vsmaintenance
 su vsmaintenance -c ". env.sh
 screen -X -S VSMAINTENANCE quit || true
-screen -d -m -S VSMAINTENANCE node --expose-gc server/app.js"
+screen -S VSMAINTENANCE node --expose-gc server/app.js"
