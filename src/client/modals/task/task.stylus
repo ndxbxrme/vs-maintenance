@@ -41,6 +41,58 @@
       text-align right
       .submit
         vs-button()
+    .drop-box
+      border 3px dashed #ccc
+      border-radius 1rem
+      background #f1f1f1
+      width 100%
+      text-align center
+      padding-bottom 1rem
+      &.dragover
+        h3
+          color vs-orange
+    .documents
+      flex 1
+      display flex
+      flex-direction column
+      .document-list
+        width 100%
+        display flex
+        justify-content flex-start
+        flex-wrap wrap
+        .document
+          width calc(25% - 2rem)
+          display flex
+          flex-direction column
+          justify-content center
+          box-sizing border-box
+          border 2px solid vs-lightgrey
+          padding 1rem
+          margin 1rem
+          font-size 1.2rem
+          .document-link
+            flex 1
+          .filename
+            margin-top 0.5rem
+            display flex
+            input
+              flex 1
+              margin-left 1rem
+          .controls
+            display flex
+            justify-content space-between
+            a
+              color vs-orange
+          img
+            max-width 100%
+            display block
+            margin 10px auto
+          @media screen and (max-width: 1080px)
+            width calc(33% - 2rem)
+          @media screen and (max-width: 800px)
+            width calc(50% - 2rem)
+          @media screen and (max-width: 590px)
+            width calc(100%)
   @media screen and (max-width:819px)
     .form-item
       .half

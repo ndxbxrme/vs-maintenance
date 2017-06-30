@@ -36,7 +36,7 @@ angular.module 'vs-maintenance'
     ndxModalInstance.dismiss()
   $scope.save = ->
     $scope.submitted = true
-    if $scope.forms.myForm.$valid
+    if $scope.forms.myForm.$valid or $scope.task.status is 'quote'
       property = Property.getProperty $scope.task.property
       $scope.task.title = "#{$scope.task.job}, #{property.displayAddress}"
       $http.post "/api/tasks/#{$scope.task._id or ''}", $scope.task
@@ -44,7 +44,11 @@ angular.module 'vs-maintenance'
         ndxModalInstance.dismiss()
       , (err) ->
         false
-    
+
+  $scope.deleteDocument = (document) ->
+    if $window.confirm 'Are you sure you want to delete this document?'
+      $scope.task.documents.splice $scope.task.documents.indexOf(document), 1
+      alert.log 'Document deleted'
   $scope.uploadFiles = (files, errFiles) ->
     if files
       Upload.upload

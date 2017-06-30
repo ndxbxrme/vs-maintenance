@@ -27,9 +27,10 @@ angular.module 'vs-maintenance'
         profitloss: 0
       if scope.tasks and scope.tasks.items
         for task in $filter('filter')(scope.tasks.items, scope.selectedUser)
-          taskDate = new Date task.date
-          if day.getDate() is taskDate.getDate() and day.getMonth() is taskDate.getMonth() and day.getFullYear() is taskDate.getFullYear()
-            output.amount += task.cost
+          if task.status is 'confirmed' or task.status is 'completed'
+            taskDate = new Date task.date
+            if day.getDate() is taskDate.getDate() and day.getMonth() is taskDate.getMonth() and day.getFullYear() is taskDate.getFullYear()
+              output.amount += task.cost
       output.profitloss = output.target - output.amount
       output
     scope.calculateWeeklyIncome = ->
@@ -43,12 +44,13 @@ angular.module 'vs-maintenance'
       weekEnd = new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() + 7)
       if scope.tasks and scope.tasks.items
         for task in $filter('filter')(scope.tasks.items, scope.selectedUser)
-          taskDate = new Date task.date
-          if weekStart.valueOf() < taskDate.valueOf() < weekEnd.valueOf()
-            output.amount += task.cost
-            output.jobs++
-            if task.status is 'quote'
-              output.quotes++
+          if task.status is 'confirmed' or task.status is 'completed'
+            taskDate = new Date task.date
+            if weekStart.valueOf() < taskDate.valueOf() < weekEnd.valueOf()
+              output.amount += task.cost
+              output.jobs++
+              if task.status is 'quote'
+                output.quotes++
       output.profitloss = output.target - output.amount
       output
     scope.tasks = scope.list 'tasks', null, ->
