@@ -8,7 +8,7 @@
     .form-item
       label.title Property:
       select(sumoselect='options', ng-model='task.property')
-        option(ng-repeat='property in getProperties()', value='{{property.RoleId}}') {{property.displayAddress}}
+        option(ng-repeat='property in getProperties() | orderBy:"Address.Street"', value='{{property.RoleId}}') {{property.displayAddress}}
     
     .form-item.half
       label.title Job:

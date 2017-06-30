@@ -1,6 +1,6 @@
 {
   "name": "vs-maintenance",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "description": "",
   "main": "server/app.js",
   "scripts": {

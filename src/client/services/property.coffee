@@ -9,6 +9,9 @@ angular.module 'vs-maintenance'
         callback null, [{
           RoleId: 'vitalspace-office'
           displayAddress: 'Vitalspace Office'
+          Address: {
+            Street: 0
+          }
         }]
       (callback) ->
         $http
@@ -18,6 +21,7 @@ angular.module 'vs-maintenance'
             Authorization: "Bearer #{env.PROPERTY_TOKEN}"
           data:
             IncludeStc: true
+            RoleType: 'Letting'
         .then (response) ->
           callback null, response.data.Collection
         , (err) ->
