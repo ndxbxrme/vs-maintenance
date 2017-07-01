@@ -16,7 +16,7 @@ angular.module 'vs-maintenance', [
     rating: 'pg'
   $urlRouterProvider.otherwise '/'
   $locationProvider.html5Mode true
-.run ($rootScope, ndxModal, $state, $timeout, TaskPopup) ->
+.run ($rootScope, ndxModal, $state, $timeout, TaskPopup, Auth) ->
   root = Object.getPrototypeOf $rootScope
   root.generateId = (len) ->
     letters = "abcdefghijklmnopqrstuvwxyz0123456789"
@@ -48,7 +48,8 @@ angular.module 'vs-maintenance', [
           output = item
           break
     output
-  $timeout ->
+  Auth.onUser ->
+    console.log 'Auth called'
     root.users = $rootScope.list 'users', null, (users) ->
       root.maintenance = []
       root.staff = []
