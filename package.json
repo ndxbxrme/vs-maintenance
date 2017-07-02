@@ -1,6 +1,6 @@
 {
   "name": "vs-maintenance",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "description": "",
   "main": "server/app.js",
   "scripts": {
@@ -36,7 +36,7 @@
     "load-grunt-tasks": "^3.5.2"
   },
   "dependencies": {
-    "ndx-auth": "^0.1.9",
+    "ndx-auth": "^0.1.10",
     "ndx-connect": "0.0.6",
     "ndx-cors": "0.0.10",
     "ndx-file-upload": "^0.1.9",
