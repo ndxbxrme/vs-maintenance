@@ -38,7 +38,7 @@ angular.module 'vs-maintenance'
     $scope.submitted = true
     if $scope.forms.myForm.$valid or $scope.task.status is 'quote'
       property = Property.getProperty $scope.task.property
-      $scope.task.title = "#{$scope.task.job}, #{$scope.property}"
+      $scope.task.title = "#{$scope.task.job}, #{$scope.task.property}"
       $scope.task.dateVal = $scope.task.date.valueOf()
       $http.post "/api/tasks/#{$scope.task._id or ''}", $scope.task
       .then (response) ->
