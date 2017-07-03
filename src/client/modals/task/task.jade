@@ -8,8 +8,7 @@
         option(ng-repeat='user in maintenance', value='{{user._id}}') {{user.displayName || user.local.email}}'s diary
     .form-item
       label.title Property:
-      select(sumoselect='options', ng-model='task.property')
-        option(ng-repeat='property in getProperties() | orderBy:"Address.Street"', value='{{property.RoleId}}') {{property.displayAddress}}
+      input(type='text', ng-model='task.property')
     
     .form-item.half
       label.title Job:
@@ -22,7 +21,7 @@
 
     .form-item.half
       label.title Date:
-      input(type='text', tap='setDate()', value='{{task.date | date:"mediumDate"}}')
+      a.date(tap='setDate()') {{task.date | date:"mediumDate"}}
     .form-item.half
       label.title Time:
       input(type='time', ng-model='task.date')
