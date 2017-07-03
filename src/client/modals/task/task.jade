@@ -1,5 +1,6 @@
 .modal.task-modal
-  h1 Book a maintenance appointment
+  h1(ng-show='!task._id') Book a maintenance appointment
+  h1(ng-show='task._id') Edit maintenance appointment
   form(name='forms.myForm', ng-submit='save()', novalidate)
     .form-item
       label.title For:
@@ -54,5 +55,6 @@
         img(gravatar-src='task.createdBy.local.email')
         span {{task.createdBy.displayName || task.createdBy.local.email}}
     .controls
+      button.delete(type='button', tap='delete()', ng-show='task._id') Delete
       input.submit(type='submit', value='Submit')
   a.close-reveal-modal(ng-click='cancel()') &times;

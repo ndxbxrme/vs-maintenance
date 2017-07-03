@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'vs-maintenance'
-.controller 'TaskCtrl', ($scope, $rootScope, $http, ndxModalInstance, Upload, alert, Property, data) ->
+.controller 'TaskCtrl', ($scope, $rootScope, $http, $window, ndxModalInstance, Upload, alert, Property, data) ->
   $scope.forms = {}
   $scope.getProperties =  Property.getProperties
   $scope.task = Object.assign {}, data.task
@@ -40,6 +40,13 @@ angular.module 'vs-maintenance'
       property = Property.getProperty $scope.task.property
       $scope.task.title = "#{$scope.task.job}, #{property.displayAddress}"
       $http.post "/api/tasks/#{$scope.task._id or ''}", $scope.task
+      .then (response) ->
+        ndxModalInstance.dismiss()
+      , (err) ->
+        false
+  $scope.delete = ->
+    if $window.confirm 'Are you sure you want to delete this task?'
+      $http.delete "/api/tasks/#{$scope.task._id}"
       .then (response) ->
         ndxModalInstance.dismiss()
       , (err) ->

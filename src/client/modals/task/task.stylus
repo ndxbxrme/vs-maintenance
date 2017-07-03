@@ -39,6 +39,8 @@
         align-items baseline
     .controls
       text-align right
+      .delete
+        vs-button()
       .submit
         vs-button()
     .drop-box
