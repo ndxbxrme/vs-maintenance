@@ -39,6 +39,7 @@ angular.module 'vs-maintenance'
     if $scope.forms.myForm.$valid or $scope.task.status is 'quote'
       property = Property.getProperty $scope.task.property
       $scope.task.title = "#{$scope.task.job}, #{property.displayAddress}"
+      $scope.task.dateVal = $scope.task.date.valueOf()
       $http.post "/api/tasks/#{$scope.task._id or ''}", $scope.task
       .then (response) ->
         ndxModalInstance.dismiss()
