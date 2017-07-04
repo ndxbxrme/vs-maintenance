@@ -1,7 +1,8 @@
 'use strict'
 
 angular.module 'vs-maintenance'
-.controller 'TaskCtrl', ($scope, $rootScope, $http, $window, ndxModalInstance, Upload, alert, Property, data) ->
+.controller 'TaskCtrl', ($scope, $rootScope, $http, $window, $timeout, ndxModalInstance, Upload, alert, Property, data) ->
+  $scope.jobs = []
   $scope.forms = {}
   $scope.getProperties =  Property.getProperties
   $scope.task = Object.assign {}, data.task
@@ -24,7 +25,8 @@ angular.module 'vs-maintenance'
     type: 'default'
   , (jobtypes) ->
     if jobtypes and jobtypes.item and jobtypes.item.jobs
-      $scope.jobs = jobtypes.item.jobs.trim().split('\n')
+      $timeout ->
+        $scope.jobs = jobtypes.item.jobs.trim().split('\n')
   $scope.setDate = ->
     $rootScope.$emit 'swiper:show', $scope.task.date
   deref = $rootScope.$on 'set-date', (e, date) ->
