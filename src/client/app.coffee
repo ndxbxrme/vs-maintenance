@@ -11,7 +11,7 @@ angular.module 'vs-maintenance', [
 ]
 .config ($locationProvider, $urlRouterProvider, gravatarServiceProvider) ->
   gravatarServiceProvider.defaults =
-    size: 16
+    size: 24
     "default": 'mm'
     rating: 'pg'
   $urlRouterProvider.otherwise '/'

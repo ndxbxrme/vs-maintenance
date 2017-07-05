@@ -10,13 +10,16 @@
       h4 Status
       .filter
         input#filterConfirmed(type='checkbox', ng-change='setFilters()', ng-model='filters.confirmed')
-        label(for='filterConfirmed') Confirmed
+        label(for='filterConfirmed') 
+        span Confirmed
       .filter
         input#filterQuote(type='checkbox', ng-change='setFilters()', ng-model='filters.quote')
-        label(for='filterQuote') Quote
+        label(for='filterQuote') 
+        span Quote
       .filter
         input#filterCompleted(type='checkbox', ng-change='setFilters()', ng-model='filters.completed')
-        label(for='filterCompleted') Completed
+        label(for='filterCompleted') 
+        span Completed
     .income {{income = calculateWeeklyIncome(); ''}}
       h4 Weekly Target
       .desktop
@@ -28,7 +31,7 @@
           span {{income.target | currency:'£'}}
         .income-item
           label +/-
-          span(ng-class='{loss:income.profitloss<0}') {{income.profitloss | currency:'£'}}
+          span.total(ng-class='{loss:income.profitloss<0}') {{income.profitloss | currency:'£'}}
       .mobile
         .income-item
           label Income
@@ -38,7 +41,7 @@
           span &nbsp;{{income.target | currency:'£':0}}
         .income-item
           label +/-
-          span(ng-class='{loss:income.profitloss<0}') &nbsp;{{income.profitloss | currency:'£':0}}
+          span.total(ng-class='{loss:income.profitloss<0}') &nbsp;{{income.profitloss | currency:'£':0}}
     .counts
       h4 Weekly Activities
       .counts-item
