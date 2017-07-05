@@ -33,8 +33,10 @@
             flex-wrap wrap
             justify-content space-between
             margin-bottom 0.2rem
-            .loss
-              color red
+            .total
+              color #035c03
+              &.loss
+                color red
           .mobile
             display none
           @media screen and (max-width:819px)

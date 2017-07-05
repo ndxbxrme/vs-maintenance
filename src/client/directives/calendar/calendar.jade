@@ -25,7 +25,7 @@
               span {{income.target | currency:'£'}}
             .income-item
               label +/-
-              span(ng-class='{loss:income.profitloss<0}') {{income.profitloss | currency:'£'}}
+              span.total(ng-class='{loss:income.profitloss<0}') {{income.profitloss | currency:'£'}}
           .mobile
             .income-item
               label Income
@@ -35,4 +35,4 @@
               span {{income.target | currency:'£':0}}
             .income-item
               label +/-
-              span(ng-class='{loss:income.profitloss<0}') {{income.profitloss | currency:'£':0}}
+              span.total(ng-class='{loss:income.profitloss<0}') {{income.profitloss | currency:'£':0}}

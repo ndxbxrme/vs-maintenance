@@ -31,7 +31,7 @@ angular.module 'vs-maintenance'
             taskDate = new Date task.date
             if day.getDate() is taskDate.getDate() and day.getMonth() is taskDate.getMonth() and day.getFullYear() is taskDate.getFullYear()
               output.amount += task.cost
-      output.profitloss = output.target - output.amount
+      output.profitloss = output.amount - output.target
       output
     scope.calculateWeeklyIncome = ->
       weekStart = startDate
@@ -51,7 +51,7 @@ angular.module 'vs-maintenance'
               output.jobs++
               if task.status is 'quote'
                 output.quotes++
-      output.profitloss = output.target - output.amount
+      output.profitloss = output.amount - output.target
       output
     scope.tasks = scope.list 'tasks', null, ->
       mapTasksToDays()
