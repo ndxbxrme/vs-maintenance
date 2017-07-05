@@ -44,13 +44,13 @@ angular.module 'vs-maintenance'
       weekEnd = new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() + 7)
       if scope.tasks and scope.tasks.items
         for task in $filter('filter')(scope.tasks.items, scope.selectedUser)
-          if task.status is 'confirmed' or task.status is 'completed'
-            taskDate = new Date task.date
-            if weekStart.valueOf() < taskDate.valueOf() < weekEnd.valueOf()
-              output.amount += +(task.cost or 0)
-              output.jobs++
-              if task.status is 'quote'
-                output.quotes++
+          if weekStart.valueOf() < taskDate.valueOf() < weekEnd.valueOf()
+            output.amount += +(task.cost or 0)
+            output.jobs++
+            if task.status is 'confirmed' or task.status is 'completed'
+              taskDate = new Date task.date
+            else task.status is 'quote'
+              output.quotes++
       output.profitloss = output.amount - output.target
       output
     scope.tasks = scope.list 'tasks', null, ->
