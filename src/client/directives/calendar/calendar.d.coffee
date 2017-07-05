@@ -30,7 +30,7 @@ angular.module 'vs-maintenance'
           if task.status is 'confirmed' or task.status is 'completed'
             taskDate = new Date task.date
             if day.getDate() is taskDate.getDate() and day.getMonth() is taskDate.getMonth() and day.getFullYear() is taskDate.getFullYear()
-              output.amount += task.cost
+              output.amount += +(task.cost or 0)
       output.profitloss = output.amount - output.target
       output
     scope.calculateWeeklyIncome = ->
@@ -47,7 +47,7 @@ angular.module 'vs-maintenance'
           if task.status is 'confirmed' or task.status is 'completed'
             taskDate = new Date task.date
             if weekStart.valueOf() < taskDate.valueOf() < weekEnd.valueOf()
-              output.amount += task.cost
+              output.amount += +(task.cost or 0)
               output.jobs++
               if task.status is 'quote'
                 output.quotes++
