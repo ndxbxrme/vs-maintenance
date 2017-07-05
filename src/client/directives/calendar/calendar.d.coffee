@@ -49,7 +49,7 @@ angular.module 'vs-maintenance'
             output.jobs++
             if task.status is 'confirmed' or task.status is 'completed'
               taskDate = new Date task.date
-            else task.status is 'quote'
+            else if task.status is 'quote'
               output.quotes++
       output.profitloss = output.amount - output.target
       output
