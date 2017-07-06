@@ -43,6 +43,10 @@
           button.file-upload(type='file', ngf-select='uploadFiles($file, $invalidFiles)') Or click here to choose
         .document-list(ng-show='task.documents.length')
           .document(ng-repeat='document in task.documents')
+            a.document-link(ng-href='{{makeDownloadUrl(document)}}', target='_self')
+              img(ng-src='{{makeDownloadUrl(document)}}', ng-if='document.basetype==="image"')
+              .document-icon(ng-hide='document.basetype==="image"', class='{{document.basetype}}')
+                img.logo(src="public/img/icons/vs-document.png")
             .filename 
               label Name: 
               span(ng-show='!document.editing') &nbsp;{{document.name || document.originalFilename}}

@@ -88,31 +88,33 @@
         .task-dir
           position absolute
           left 0
-          background #f1f1f1
-          border-left 5px solid #666
-          border-bottom 1px solid vs-grey
+          background vs-grey
+          border 1px solid #f1f1f1
+          border-radius 5px
           box-sizing border-box
-          font-size 1.3rem
+          font-size 1.8rem
           width calc(100% + 1px)
           text-align left
-          padding 5px 10px
+          padding 10px
           overflow hidden
           z-index 10
           cursor default
-          box-shadow inset -1px -1px 4px rgba(0,0,0,0.1), inset 1px 1px 4px rgba(255,255,255,0.5)
+          color #f1f1f1
+          p
+            font-size 1.3rem
+            margin 4px 0 0 37px
+            color white
           img
-            margin calc(2.5rem - 20px) 0.5rem 0 0
+            margin calc(2.5rem - 24px) 10px 0 0
             float left
+            border 1px solid #f1f1f1
+            border-radius 50%
           &.confirmed
-            background #f1f1f1
-            color vs-grey
-            border-left 5px solid vs-green
-            border-bottom 1px solid vs-grey
+            background darken(vs-green, 40%)
+            color #f1f1f1
           &.quote
-            background #f1f1f1
-            color vs-grey
-            border-left 5px solid vs-orange
-            border-bottom 1px solid vs-grey
+            background vs-orange
+            color #f1f1f1
           &:hover
             background #ddd
         &:first-of-type
