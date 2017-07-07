@@ -32,9 +32,12 @@
       label.title Job brief:
       textarea(ng-model='task.brief')
     .form-item
-      label.title Cost:
+      label.title Cost (£):
       input(type='number', name='cost', ng-model='task.cost', required)
       small.error(ng-show='submitted && forms.myForm.cost.$error.required') Please enter the cost of the job
+    .form-item.half
+      label.title Materials (£):
+      input(type='number', ng-model='task.materials')
     .form-item
       label.title Job card:
       .documents

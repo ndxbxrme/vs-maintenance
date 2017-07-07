@@ -14,7 +14,7 @@
         label Created by
         span
           img(gravatar-src='getTask().createdBy.local.email')
-          | {{getTask().createdBy.displayName}} {{getTask().createdBy.local.email}}
+          | {{getTask().createdBy.displayName}}
     .controls
       button.edit(ng-click='edit(getTask())') Edit
       .checkbox-item

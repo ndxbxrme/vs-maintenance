@@ -122,11 +122,14 @@
             width calc(50% - 2rem)
           @media screen and (max-width: 590px)
             width calc(100%)
+
   @media screen and (max-width:819px)
-    .form-item
+    form .form-item
       .half
         min-width 100%
         margin-bottom 1.6rem
+      input[type=time], input[type=number]
+        flex 1
   @media screen and (max-height:800px)
     overflow-Y scroll
     max-height 100vh

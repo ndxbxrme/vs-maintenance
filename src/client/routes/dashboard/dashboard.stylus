@@ -146,13 +146,22 @@
       .today, .user-select
         width 50%
       .filters, .income, .counts
-        flex 1
+        flex auto
         .desktop
           display none
         .mobile
           display block
-      .filter
-        white-space nowrap
+      .filters
+        width 100%
+        h4 
+          margin-bottom 20px
+        .filter
+          white-space nowrap
+          width 97px
+          display inline-block
+          span
+            left 3px
+            top -18px
 .select2-chosen
   img
     vertical-align middle
