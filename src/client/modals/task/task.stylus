@@ -70,6 +70,8 @@
         vs-button()
       .submit
         vs-button()
+      &.bottom
+        margin-bottom 50px
     .drop-box
       border 3px dashed #ccc
       border-radius 1rem

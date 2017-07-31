@@ -60,7 +60,7 @@
       span {{task.createdDate | date:'mediumDate'}}, {{task.createdDate | date:'shortTime'}} | &nbsp;
         img(gravatar-src='task.createdBy.local.email')
         span {{task.createdBy.displayName || task.createdBy.local.email}}
-    .controls
+    .controls.bottom
       button.delete(type='button', tap='delete()', ng-show='task._id') Delete
       input.submit(type='submit', value='Submit')
   a.close-reveal-modal(ng-click='cancel()') &times;
