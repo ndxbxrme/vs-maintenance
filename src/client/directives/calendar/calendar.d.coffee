@@ -6,6 +6,20 @@ angular.module 'vs-maintenance'
   templateUrl: 'directives/calendar/calendar.html'
   replace: true
   link: (scope, elem, attrs) ->
+    dayOffset = 7
+    daysToShow = 5
+    if window.innerWidth < 820
+      dayOffset = 1
+      daysToShow = 1
+    resize = ->
+      dayOffset = 7
+      daysToShow = 5
+      if window.innerWidth < 820
+        dayOffset = 1
+        daysToShow = 1
+      $timeout ->
+        generateData scope.startDate
+    window.addEventListener 'resize', resize
     mapTasksToDays = ->
       if scope.tasks and scope.tasks.items
         for week in scope.weeks
@@ -78,12 +92,13 @@ angular.module 'vs-maintenance'
       generateData startDate
     scope.$on '$destroy', ->
       deref()
+      window.removeEventListener 'resize', resize
     makeWeek = (startDate) ->
       week =
         date: startDate
         days: []
       i = 0
-      while i++ < 5
+      while i++ < daysToShow
         hours = []
         startDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), 9)
         j = 0
@@ -97,10 +112,11 @@ angular.module 'vs-maintenance'
         startDate = new Date(startDate.valueOf() + 24 * 60 * 60 * 1000)
       week
     generateData = (startDate) ->
+      scope.startDate = startDate
       scope.weeks = [
-        makeWeek new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - 7)
+        makeWeek new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - dayOffset)
         makeWeek startDate
-        makeWeek new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + 7)
+        makeWeek new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + dayOffset)
       ]
       mapTasksToDays()
     while startDate.getDay() isnt 1
@@ -200,9 +216,9 @@ angular.module 'vs-maintenance'
       if scope.snap.key isnt 1
         $timeout ->
           if scope.snap.key is 0
-            startDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - 7)
+            startDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - dayOffset)
           if scope.snap.key is 2
-            startDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + 7)
+            startDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + dayOffset)
           generateData startDate
           scope.snap = _snaps[1]
           carousel.removeClass('animate').css transform: 'translate3d(' + scope.snap.value + '%, 0, 0)'

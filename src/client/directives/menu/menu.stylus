@@ -31,3 +31,7 @@ menu
       text-decoration none
       &:hover
         background mix(#fff, vs-orange, 80)
+.mobile
+  .mobile-menu
+    overflow-Y scroll
+    height calc(100vh - 71px)

@@ -8,7 +8,7 @@
       .day(ng-repeat='day in week.days', ng-class='{selected:isSelected(day.day)}')
         .day-name 
           .desktop {{day.day | date:'EEE, MMM d'}}
-          .mobile {{day.day | date:'MMM d'}}
+          .mobile {{day.day | date:'EEE, MMM d'}}
         .hours
           .hour(ng-repeat='hour in day.hours', tap='openTask({date:hour}, $event)')
             .legend 

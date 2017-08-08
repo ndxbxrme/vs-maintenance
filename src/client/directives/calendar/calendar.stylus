@@ -5,6 +5,8 @@
   overflow hidden
   .controls
     padding-left 3.5rem
+    text-align center
+    margin-bottom 1.2rem
     a
       color vs-orange
       text-decoration none
@@ -39,6 +41,7 @@
                 color red
           .mobile
             display none
+          /*
           @media screen and (max-width:819px)
             padding 0.1rem
             .mobile
@@ -49,17 +52,20 @@
                   display block
             .desktop
               display none
+          */
         .legend
           display none
           padding-right .5rem
           font-size 1rem
         .mobile
           display none
+        /*
         @media screen and (max-width:819px)
           .mobile
             display block
           .desktop
             display none
+        */
         .hours
           position relative
         .hour

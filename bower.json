@@ -28,7 +28,9 @@
     "angular-ui-select2": "^0.0.5",
     "ng-file-upload": "^12.2.13",
     "async": "^2.4.1",
-    "ndx-rest": "^0.2.0",
+    "ng-sumoselect": "^0.0.6",
+    "headjs": "^1.0.3",
+    "ndx-rest": "^0.2.1",
     "ndx-socket": "^0.0.6",
     "ndx-modal": "^0.0.5",
     "ndx-alert": "^0.0.2",
@@ -36,8 +38,7 @@
     "ndx-codemirror": "^0.0.8",
     "ndx-markdown": "^0.0.4",
     "ndx-scroll-top": "^0.0.11",
-    "ndx-pagination": "^0.1.1",
-    "ndx-auth": "^0.1.2",
-    "ng-sumoselect": "^0.0.6"
+    "ndx-pagination": "^0.1.3",
+    "ndx-auth": "^0.3.3"
   }
 }
