@@ -112,6 +112,7 @@ angular.module 'vs-maintenance'
         startDate = new Date(startDate.valueOf() + 24 * 60 * 60 * 1000)
       week
     generateData = (startDate) ->
+      TaskPopup.hide()
       scope.startDate = startDate
       scope.weeks = [
         makeWeek new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() - dayOffset)
@@ -121,13 +122,14 @@ angular.module 'vs-maintenance'
       mapTasksToDays()
     while startDate.getDay() isnt 1
       startDate = new Date(startDate.valueOf() - 24 * 60 * 60 * 1000)
-    generateData startDate
+    $timeout ->
+      generateData startDate
     scope.isSelected = (day) ->
       if day.getDate() is selectedDate.getDate() and day.getMonth() is selectedDate.getMonth() and day.getFullYear() is selectedDate.getFullYear()
         return true
       false
     scope.openTask = (task, ev) ->
-      if not TaskPopup.cancelBubble
+      if TaskPopup.getHidden()
         task = task or {}
         task.duration = task.duration or new Date 3600000
         task.assignedTo = task.assignedTo or scope.selectedUser

@@ -49,7 +49,6 @@ angular.module 'vs-maintenance', [
           break
     output
   Auth.onUser ->
-    console.log 'Auth called'
     root.users = $rootScope.list 'users', null, (users) ->
       root.maintenance = []
       root.staff = []

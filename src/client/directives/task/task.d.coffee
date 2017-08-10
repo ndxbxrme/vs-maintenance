@@ -9,6 +9,7 @@ angular.module 'vs-maintenance'
     scope.openTask = (task, ev) ->
       TaskPopup.setTask task
       TaskPopup.show elem
+      ev.stopPropagation()
       ###
       task = task or {}
       task.duration = task.duration or new Date 3600000

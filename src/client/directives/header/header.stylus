@@ -5,6 +5,7 @@
   width 100%
   height 72px
   z-index 22
+  top 0px
   .container
     height 100%
     display flex

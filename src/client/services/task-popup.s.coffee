@@ -53,6 +53,7 @@ angular.module 'vs-maintenance'
   getTask: ->
     task
   show: (_elem) ->
+    console.log 'showing'
     hidden = false
     elem = _elem[0]
     $timeout ->
