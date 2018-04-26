@@ -19,7 +19,7 @@ html
     .holder(ng-class='{"mobile-menu-out":mobileMenuOut}')
       .body
         .container
-          .view(ui-view='', ng-if='auth.getUser() || state("invited")')
+          .view(ui-view='', ng-if='auth.getUser() || state("invited") || state("forgot")')
     footer
     date-swiper(config='{prefix:"swiper", modifier:1.5, show:false}')
     task-popup
