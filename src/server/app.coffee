@@ -7,6 +7,7 @@ require 'ndx-server'
   localStorage: './data'
   hasInvite: true
   hasForgot: true
+  serveUploads: true
   publicUser:
     _id: true
     displayName: true
